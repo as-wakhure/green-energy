@@ -3,6 +3,8 @@ package com.ultragreenenery.UltraGreenEnergy.controller.login;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -14,9 +16,10 @@ public class LoginController {
         System.out.println("request to get login page...");
         return "login";
     }
-    @GetMapping("/login-processing")
+
+    @GetMapping("/home")
     public String loginApplication(){
-        return "home";
+        return "homepage";
     }
 
     @GetMapping("/logout")
