@@ -1,26 +1,32 @@
 package com.ultragreenenery.UltraGreenEnergy.entity.user;
 
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Document(collection = "user")
-public class User {
-
-
-    private  String loginName;
+public class User implements UserDetails {
+    private  String username;
     private  String password;
     private String emailId;
     private String name;
     private String mobileNo;
     private  String  loginStatus;
-    private Date registerDate;
+    private LocalDate registerDate;
+    private boolean enabled;
 
     public User(){}
-    public User(String loginName,String password,String emailId,String name,String mobileNo){
-        this.loginName=loginName;
+    public User(String username,
+                String password,
+                String emailId, String name,
+                String mobileNo){
+        this.username=username;
         this.password=password;
         this.emailId=emailId;
         this.name=name;
@@ -28,16 +34,56 @@ public class User {
 
     }
 
-
-
-    public String getLoginName() {
-        return loginName;
+    public User(String username, String password, String emailId, String name, String mobileNo, String loginStatus,
+                LocalDate registerDate, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.emailId = emailId;
+        this.name = name;
+        this.mobileNo = mobileNo;
+        this.loginStatus = loginStatus;
+        this.registerDate = registerDate;
+        this.enabled = enabled;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority=new SimpleGrantedAuthority("ROLE_USER");
+        return List.of(authority);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
     public String getPassword() {
         return password;
     }
@@ -74,14 +120,14 @@ public class User {
 
     public void setLoginStatus(String loginStatus) {  this.loginStatus = loginStatus; }
 
-    public Date getRegisterDate() {  return registerDate; }
+    public LocalDate getRegisterDate() {  return registerDate; }
 
-    public void setRegisterDate(Date registerDate) { this.registerDate = registerDate; }
+    public void setRegisterDate(LocalDate registerDate) { this.registerDate = registerDate; }
 
     @Override
     public String toString() {
         return "User{" +
-                "loginName='" + loginName + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", emailId='" + emailId + '\'' +
                 ", name='" + name + '\'' +

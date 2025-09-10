@@ -1,6 +1,7 @@
 package com.ultragreenenery.UltraGreenEnergy.controller.user;
 
 import com.ultragreenenery.UltraGreenEnergy.model.user.User;
+import com.ultragreenenery.UltraGreenEnergy.service.user.CustomUserDetailService;
 import com.ultragreenenery.UltraGreenEnergy.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+//    @Autowired
+//    CustomUserDetailService customUserDetailService;
+
     @GetMapping("/dashboard")
     public String userDashboard(){
         return "user_dashboard";
@@ -25,8 +29,8 @@ public class UserController {
 
     @PostMapping("/add")
     public String saveUserData(@RequestBody User userDto){
-        return  userService.saveUserData(userDto);
-
+        userService.saveUserData(userDto);
+        return "homepage";
     }
     @GetMapping("/home")
     public String homepage(ModelMap model){
@@ -55,6 +59,12 @@ public class UserController {
         return ResponseEntity.ok(user);
 
     }
+
+//    @PutMapping("/update")
+//    public String updateUser(@RequestBody User userDto){
+//        return  userService.updateUser(userDto);
+//
+//    }
 
     @PutMapping("/update")
     public String updateUser(@RequestBody User userDto){

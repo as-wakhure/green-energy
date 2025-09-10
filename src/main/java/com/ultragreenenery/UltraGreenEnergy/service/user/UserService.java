@@ -1,10 +1,11 @@
 package com.ultragreenenery.UltraGreenEnergy.service.user;
 
 import com.ultragreenenery.UltraGreenEnergy.model.user.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
     public String saveUserData(User userDto);
 
     public List<User> getAllUsers();
