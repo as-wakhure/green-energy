@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UltraTech - OTP Verification</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url(https://media.istockphoto.com/id/1364490996/vector/abstract-gray-silver-and-white-lines-pattern-background.jpg?s=612x612&w=0&k=20&c=nMYo6Uzg2ARSzjMKEtH_Li6QGz5DrgBZNaG6lMn8JxA=);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: #fff;
+      padding: 60px 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 160px;
+    }
+
+    .form-title {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .otp-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .otp-inputs input {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5em;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #FFD700; /* UltraTech yellow */
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e6c200;
+    }
+
+    .account-link {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    .account-link a {
+      color: #0072ff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .account-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/110216.Ultratech-Cement-Appoints-Tilt-Brand-Solutions-as-Brand-&-Communication-Agency.png" alt="UltraTech Logo">
+    </div>
+
+    <p class="form-title">Enter your OTP</p>
+
+    <!-- OTP Form -->
+    <form    method="GET"   method="POST" action="New_password.html">
+      <div class="otp-inputs">
+        <input type="text" maxlength="1" name="otp1" required>
+        <input type="text" maxlength="1" name="otp2" required>
+        <input type="text" maxlength="1" name="otp3" required>
+        <input type="text" maxlength="1" name="otp4" required>
+      </div>
+      <button type="submit" class="btn">Confirm OTP</button>
+    </form>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll(".otp-inputs input");
+
+    inputs.forEach((input, index) => {
+      input.addEventListener("input", () => {
+        if (input.value.length === 1 && index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && input.value === "" && index > 0) {
+          inputs[index - 1].focus();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

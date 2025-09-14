@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UltraTech - Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url(https://media.istockphoto.com/id/1364490996/vector/abstract-gray-silver-and-white-lines-pattern-background.jpg?s=612x612&w=0&k=20&c=nMYo6Uzg2ARSzjMKEtH_Li6QGz5DrgBZNaG6lMn8JxA=);
+      background-image: ();
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 160px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #FFD700; /* UltraTech yellow */
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e6c200;
+    }
+
+    .account-link {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    .account-link a {
+      color: #0072ff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .account-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/110216.Ultratech-Cement-Appoints-Tilt-Brand-Solutions-as-Brand-&-Communication-Agency.png" alt="UltraTech Logo">
+    </div>
+
+    <!-- Signup Form -->
+    <form method="POST" action="/signup">
+      <div class="form-group">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="email" placeholder="Email or Phone number" required>
+      </div>
+      <div class="form-group">
+        <input type="number" name="Phone NO" placeholder=" Phone number" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Enter Password" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      </div>
+      <button type="submit" class="btn">Create Account</button>
+    </form>
+
+    <!-- Already have account -->
+    <div class="account-link">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
